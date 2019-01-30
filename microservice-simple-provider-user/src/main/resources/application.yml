@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   jpa:
-    generate-ddl: false
+    generate-ddl: true
     show-sql: true
     hibernate:
       ddl-auto: none
