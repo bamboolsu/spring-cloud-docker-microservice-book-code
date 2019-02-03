@@ -27,21 +27,44 @@ echo XXXXXXXX
 cd ../../microservice-provider-user/target/
 echo start java -jar  microservice-provider-user-0.0.1-SNAPSHOT.jar  --server.port=8000   --spring.profiles.active=test 
 start java -jar  microservice-provider-user-0.0.1-SNAPSHOT.jar  --server.port=8000
-echo XXXXXXXX end  simple-provider-user
+echo XXXXXXXX end  provider-user
+
 
 
 echo XXXXXXXX
-echo http://localhost:8010/user/1
-echo XXXXXXXX spring-cloud-starter-netflix-eureka-client
-echo XXXXXXXX  spring-boot-starter-actuator
-cd ../../microservice-consumer-movie/target/
-echo  start java -jar  microservice-consumer-movie-0.0.1-SNAPSHOT.jar   --server.port=8010
-start java -jar  microservice-consumer-movie-0.0.1-SNAPSHOT.jar   --server.port=8010
-echo XXXXXXXX end  consumer-movie
+echo http://localhost:8010/user/1      http://localhost:8010/log-user-instance
+echo XXXXXXXX spring-cloud-starter-netflix-eureka-client  
+echo XXXXXXXX  spring-cloud-starter-netflix-hystrix
+cd ../../microservice-consumer-movie-feign-hystrix-fallback-factory/target/
+echo  start java -jar  microservice-consumer-movie-feign-hystrix-fallback-factory-0.0.1-SNAPSHOT.jar   --server.port=8010
+start java -jar  microservice-consumer-movie-feign-hystrix-fallback-factory-0.0.1-SNAPSHOT.jar   --server.port=8010
+echo XXXXXXXX end  consumer-movie-feign-hystrix-fallback-factory
+
+
+
 
 echo XXXXXXXX 
-echo　方位　ｅｕｒｅｋａ　服务器；　http://localhost:8761/
+echo  4： 访问 http://localhost:8010/user/1
+echo XXXXXXXX
+
 echo XXXXXXXX 
+echo  5： 访问 http://localhost:8010/health
+echo XXXXXXXX
+
+
+echo XXXXXXXX 
+echo  6： 访问 http://localhost:8010/health.stream    hystrix的监控；
+echo XXXXXXXX
+
+echo XXXXXXXX
+echo  7：停止  microservice-provider-user
+echo XXXXXXXX
+
+echo XXXXXXXX
+echo  8：再次访问  http://localhost:8010/user/1  得到回退结果
+echo XXXXXXXX
+ 
+ 
 
 
 

@@ -27,21 +27,26 @@ echo XXXXXXXX
 cd ../../microservice-provider-user/target/
 echo start java -jar  microservice-provider-user-0.0.1-SNAPSHOT.jar  --server.port=8000   --spring.profiles.active=test 
 start java -jar  microservice-provider-user-0.0.1-SNAPSHOT.jar  --server.port=8000
-echo XXXXXXXX end  simple-provider-user
+echo XXXXXXXX end  provider-user
+
 
 
 echo XXXXXXXX
-echo http://localhost:8010/user/1
-echo XXXXXXXX spring-cloud-starter-netflix-eureka-client
+echo http://localhost:8010/user/1      http://localhost:8010/log-user-instance
+echo XXXXXXXX spring-cloud-starter-netflix-eureka-client  包含了  spring-boot-starter-feign
 echo XXXXXXXX  spring-boot-starter-actuator
-cd ../../microservice-consumer-movie/target/
-echo  start java -jar  microservice-consumer-movie-0.0.1-SNAPSHOT.jar   --server.port=8010
-start java -jar  microservice-consumer-movie-0.0.1-SNAPSHOT.jar   --server.port=8010
-echo XXXXXXXX end  consumer-movie
+cd ../../microservice-consumer-movie-feign-logging/target/
+echo  start java -jar  microservice-consumer-movie-feign-logging-0.0.1-SNAPSHOT.jar   --server.port=8010
+start java -jar  microservice-consumer-movie-feign-logging-0.0.1-SNAPSHOT.jar   --server.port=8010
+echo XXXXXXXX end  consumer-movie-feign-logging
 
-echo XXXXXXXX 
-echo　方位　ｅｕｒｅｋａ　服务器；　http://localhost:8761/
-echo XXXXXXXX 
+
+:echo java -jar ../../microservice-simple-provider-user/target/microservice-simple-provider-user-0.0.1-SNAPSHOT.jar
+:java -jar ../../microservice-simple-provider-user/target/microservice-simple-provider-user-0.0.1-SNAPSHOT.jar
+
+
+
+echo XXXXXXXX
 
 
 

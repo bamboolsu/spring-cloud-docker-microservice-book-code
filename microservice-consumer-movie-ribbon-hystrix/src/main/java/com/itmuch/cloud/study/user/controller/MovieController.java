@@ -21,7 +21,7 @@ public class MovieController {
   @Autowired
   private LoadBalancerClient loadBalancerClient;
 
-  @HystrixCommand(fallbackMethod = "findByIdFallback")
+  @HystrixCommand(fallbackMethod = "findByIdFallback") // 支持commandProperties = {@ , @}
   @GetMapping("/user/{id}")
   public User findById(@PathVariable Long id) {
     return this.restTemplate.getForObject("http://microservice-provider-user/" + id, User.class);

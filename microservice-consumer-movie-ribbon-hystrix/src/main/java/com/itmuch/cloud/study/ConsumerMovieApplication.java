@@ -8,9 +8,9 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableDiscoveryClient
 @SpringBootApplication
-@EnableCircuitBreaker
+@EnableCircuitBreaker  //断路器支持
+@EnableDiscoveryClient //断路器支持
 public class ConsumerMovieApplication {
   @Bean
   @LoadBalanced
